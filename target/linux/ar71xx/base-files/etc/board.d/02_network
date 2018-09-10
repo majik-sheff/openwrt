@@ -249,7 +249,6 @@ ar71xx_setup_interfaces()
 		;;
 	archer-c58-v1|\
 	archer-c59-v1|\
-	archer-c59-v2|\
 	fritz4020|\
 	rb-450g)
 		ucidef_set_interfaces_lan_wan "eth1.1" "eth0"
@@ -493,6 +492,7 @@ ar71xx_setup_interfaces()
 		ucidef_set_interface_wan "eth0"
 		ucidef_set_interface "wlan" ifname "wlan0" protocol "dhcp"
 		;;
+	archer-c59-v2|\
 	tl-mr3420-v2|\
 	tl-wr841n-v8|\
 	tl-wr842n-v2|\
