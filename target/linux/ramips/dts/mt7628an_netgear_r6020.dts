@@ -79,11 +79,13 @@
 	flash@0 {
 		compatible = "jedec,spi-nor";
 		reg = <0>;
-		spi-max-frequency = <10000000>;
-		m25p,chunked-io = <32>;
+		spi-max-frequency = <86000000>;
+		m25p,fast-read;
 		
 		partitions {
 			compatible = "fixed-partitions";
+			#address-cells = <1>;
+			#size-cells = <1>;
 
 			partition@0 {
 				label = "u-boot";
@@ -97,7 +99,7 @@
 				read-only;
 			};
 
-			partition@60000 {
+			nvram: partition@60000 {
 				label = "nvram";
 				reg = <0x60000 0x30000>;
 				read-only;
@@ -161,8 +163,6 @@
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x8000>;
 		ieee80211-freq-limit = <5000000 6000000>;
-		mtd-mac-address = <&nvram 0x100b0>;
-		mtd-mac-address-increment = <(2)>;
 	};
 };
 
