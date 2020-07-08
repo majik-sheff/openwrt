@@ -191,7 +191,7 @@ TARGET_DEVICES += mercury_mac1200r-v2
 
 define Device/netgear_r6020
   BLOCKSIZE := 64k
-  IMAGE_SIZE := 15744k
+  IMAGE_SIZE := 7104k
   DEVICE_VENDOR := NETGEAR
   DEVICE_MODEL := R6020
   DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci
