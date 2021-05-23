@@ -1,7 +1,5 @@
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# SPDX-License-Identifier: GPL-2.0-only
+
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/image.mk
 
@@ -24,7 +22,7 @@ endef
 
 define Build/boot-script
 	# Make an U-boot image and copy it to the boot partition
-	mkimage -A arm -O linux -T script -C none -a 0 -e 0 -d mmc.bootscript $@.boot/boot.scr
+	mkimage -A arm -O linux -T script -C none -a 0 -e 0 -d $(if $(1),$(1),mmc).bootscript $@.boot/boot.scr
 endef
 
 define Build/pine64-img
@@ -52,7 +50,6 @@ define Device/Default
   PROFILES := Default
   KERNEL := kernel-bin
   IMAGES := sysupgrade.img.gz
-  SUPPORTED_DEVICES := $(subst _,$(comma),$(1))
   DEVICE_DTS = rockchip/$$(SOC)-$(lastword $(subst _, ,$(1)))
 endef
 
